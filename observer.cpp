@@ -5,16 +5,19 @@ using namespace std;
 // Observer Pattern
 // https://www.geeksforgeeks.org/observer-pattern-c-design-patterns/?ref=lbp
 
+// Observer interface
 class ObserverInterface {
 public:
    virtual void update(float temp) = 0;
 };
 
+// Concrete Observer
 class Display : public ObserverInterface {
 public:
    virtual void update(float temp) { cout << "\n Temperature: " << temp; }
 };
 
+// Subject
 class weatherStation {
    float temperature;
    vector<ObserverInterface*> observers;
@@ -35,10 +38,7 @@ public:
    }
 };
 
-
-
-int obsever()
-{
+int main() {
    weatherStation wsObj;
 
    Display dObj_1;
@@ -52,5 +52,3 @@ int obsever()
 
    return 0;
 }
-
-
